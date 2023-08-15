@@ -1,0 +1,58 @@
+{% extends 'layouts/main.html' %}
+{% block content %}
+{% include 'inc/rctrnav.html' %}
+    
+	  
+    
+    <div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+          <div class="col-md-12 ftco-animate text-center mb-5">
+          	<p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog</span></p>
+            <h1 class="mb-3 bread">Our Blog</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<div class="container mt-5">
+    <div class="card w-100" >
+        <img src="{{applicantdetails.image.url}}" class="card-img-top w-25 shadow-lg p-1 mb-5 bg-body rounded"  height="200px" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">{{applicantdetails.name}}</h3>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item ">Email: <span class="text-dark ml-5">{{applicantdetails.email}}</span></li>
+          <li class="list-group-item ">Phone No: <span class="text-dark ml-3">{{applicantdetails.phn}}</span></li>
+          <li class="list-group-item ">Address: <span class="text-dark ml-4">{{applicantdetails.address}}</span></li>
+          <li class="list-group-item ">City: <span class="text-dark ml-5">{{applicantdetails.city}}</span></li>
+          <li class="list-group-item ">State: <span class="text-dark ml-5">{{applicantdetails.state}}</span></li>
+          <li class="list-group-item ">pin: <span class="text-dark ml-5">{{applicantdetails.pin}}</span></li>
+          <li class="list-group-item ">Skills: <span class="text-dark ml-5">{{applicantdetails.skill}}</span></li>
+          <li class="list-group-item ">Experience: <span class="text-dark ml-5">{{applicantdetails.experience}}</span></li>
+        </ul>
+        <div class="card-body">
+          <a href="{% url 'applicationtstatus' applicantdetails.id %}" class="btn btn-success py-2 " >Accept</a>
+          <a href="{% url 'applicationreject' applicantdetails.id %}" class="btn btn-danger py-2">Reject</a>  
+        </div>
+   
+      </div>
+
+    
+     
+</div>
+
+	
+	
+    
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  {% endblock content %}

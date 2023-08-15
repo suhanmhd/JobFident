@@ -1,0 +1,74 @@
+{% extends 'layouts/main.html' %}
+{% block content %}
+{% include 'inc/nav.html' %}
+    
+	  
+    
+    <div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+          <div class="col-md-12 ftco-animate text-center mb-5">
+          	<p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Applied Jobs</span></p>
+            <h1 class="mb-3 bread">Applied Jobs</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<div class="container mt-5">
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Job</th>
+            <th scope="col">Company</th>
+            <th scope="col">Location</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          {%for j in appliedjob %}
+         
+          <tr>
+            <td>{{j.job.jobtitle}}</td>
+            <td>{{j.job.company}}</td>
+            <td>{{j.job.location}}</td> 
+            {%if j.status == 'Rejected'%}
+            <th style="color: red;">{{j.status}}</th>
+            {%else%}
+            <th style="color: green;">{{j.status}}</th>
+          {%endif%}
+
+          {%if j.status == 'Rejected'%}
+          <td><a class="btn btn-primary"  href="{%url 'deleteappliedjobs' j.id %}">remove</a>  </td>
+           
+          {%else%}
+          <td> <button class="btn btn-primary"  disabled>remove</buttton>  </td>
+           
+        {%endif%}
+          
+          </tr>
+          {%endfor%}
+          
+          
+        </tbody>
+      </table>  
+
+     
+</div>
+
+	
+	
+    
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  {% endblock content %}

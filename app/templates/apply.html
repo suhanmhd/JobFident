@@ -1,0 +1,196 @@
+{% extends 'layouts/main.html' %}
+{% block content %}
+{% include 'inc/nav.html' %}
+    
+    <div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+          <div class="col-md-12 ftco-animate text-center mb-5">
+          	<p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About</span></p>
+            <h1 class="mb-3 bread">Apply Jobs</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+
+
+      <div class="row">
+        <div class="col-lg-9 pr-lg-4">
+          <div class="row">
+           
+            <div class="col-md-12 ftco-animate">
+              <div class="job-post-item p-4 d-block d-lg-flex align-items-center">
+                <div class="one-third mb-4 mb-md-0">
+                  <div class="job-post-item-header align-items-center">
+                    <span class="subadge">{{JD.jobtype}}</span>
+                    <h2 class="mr-3 text-black"><a href="#">{{JD.jobtitle}}</a></h2>
+                    <div class="job-post-item-body d-block d-md-flex">
+                      <div class="mr-3"><span class="icon-layers"></span> <a href="#">{{JD.company}}</a></div>
+                      <div class="ml-5"><span class="icon-my_location"></span> <span>{{JD.location}}</span></div>
+                      <div class="ml-5 "> <span>Rs. {{JD.salary}}</span></div>
+                      
+                    </div>
+                    <br>
+                    <div class="container-fluid">
+  
+                      <div class="row"> 
+                        <div class="mt-4"> 
+                          <h5>Job Description</h5>
+                        <p> {{JD.jobdescription}} </p>
+                      </div>
+                      <div class="mt-4"> 
+                        <h5>Skill</h5>
+                      <p> {{JD.skill}} </p>
+                    </div>
+                    <div class="mt-4"> 
+                      <h5>Experience</h5>
+                    <p> {{JD.experience}} </p>
+                  </div>
+                      </div>
+                    
+                    </div>
+                  </div>
+                 
+                </div>
+                
+              
+              
+              </div>
+            </div><!-- end -->
+      
+          </div>
+
+
+     
+      <!-- <div class="row">
+        <div class="mx-auto">
+          <h1>{{JD.company}}</h1>
+        </div>
+        
+        
+        
+        
+         
+       
+       
+        </div> -->
+      </div>  
+      
+     
+       
+        
+
+        <!-- <div class="container">
+          <div class="row">
+            <div class="box">
+              <h1>job description</h1>
+
+            </div>
+
+          </div>
+
+
+        </div> -->
+
+        <!-- <h5>web developer</h5>
+        <h5><span class="icon-my_location">US</span></h5> -->
+        
+        <!-- <div class="job-post-item-header align-items-center">
+          <span class="subadge">Partime</span>
+          <h2 class="mr-3 text-black"><a href="#">{{i.jobtitle}}</a></h2>
+        </div>
+        <div class="job-post-item-body d-block d-md-flex">
+          <div class="mr-3"><span class="icon-layers"></span> <a href="#">{{i.company}}</a></div>
+          <div><span class="icon-my_location"></span> <span>{{i.location}}</span></div> -->
+        </div>
+       
+        </div>
+
+
+
+
+      </div>
+
+    </div>
+    
+
+
+
+
+        
+    
+    
+    <div class="container mt-5">
+
+      <form  method="post"  enctype="multipart/form-data" class="mb-5">
+        {% csrf_token %}
+        <div class="form-row">
+          
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter your name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          
+          
+          
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Email">
+          </div>
+          
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Phone Number</label>
+            <input type="number" class="form-control" name="phone" placeholder="Enter your number">
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Address</label>
+          <input type="text" class="form-control" name="address" placeholder="1234 Main St">
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" name="city" >
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <input type="text" class="form-control" name="state">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Pin Code</label>
+            <input type="text" class="form-control" name="pin">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputAddress">Skills</label>
+          <input type="text" class="form-control" name="skills" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="inputAddress">Experience</label>
+          <input type="text" class="form-control" name="experience" placeholder="">
+        </div>
+
+        <div>
+          <label for="formFileLg" class="form-label">Upload Image</label>
+          <input class="form-control form-control-lg" name="image" type="file">
+        </div>
+
+        <div  class="mt-3 ">
+          <label for="formFileLg" class="form-label">Upload Resume</label>
+          <input class="form-control form-control-lg" name="resume" type="file">
+        </div>
+       
+        <button type="submit" class="btn btn-primary mt-5 ">Apply</button>
+      </form>
+    </div>                   
+    {% endblock content %}     

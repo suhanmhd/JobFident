@@ -1,0 +1,42 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container-fluid px-md-4	">
+      <a class="navbar-brand" href="{% url 'home' %}">JobFident</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}"><a href="{% url 'home' %}" class="nav-link ">Home</a></li>
+          <li class="nav-item {% if request.resolver_match.url_name == 'browsejobs' %}active{% endif %}"><a href="{% url 'browsejobs' %}" class="nav-link ">Browse Jobs</a></li>
+          <li class="nav-item {% if request.resolver_match.url_name == 'userappliedjobs' %}active{% endif %}"><a href="{% url 'userappliedjobs' %}" class="nav-link">Applied Jobs</a></li>
+          {% if request.user.is_authenticated %}
+          <!-- <li class="nav-item "> <a href="" class="nav-link">{{request.user}}</a></li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{request.user}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+            
+               
+              </li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">logout</a></li>
+            </ul>
+  
+          {% else %}
+          <li class="nav-item "><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+          {% endif %}
+          <!-- <li class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+        
+           
+          <li class="nav-item cta mr-md-1 {% if request.resolver_match.url_name == 'newpost' %}active{% endif %}"><a href="{% url 'newpost' %}" class="nav-link">Post a Job</a></li>
+        
+          <li class="nav-item cta cta-colored {% if request.resolver_match.url_name == 'jobpost' %}active{% endif %}"><a href="{% url 'jobpost' %}" class="nav-link">Want a Job</a></li> -->
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
